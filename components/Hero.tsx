@@ -27,11 +27,12 @@ export default function Hero() {
               href="#about"
               className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accentSoft px-7 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:-translate-y-0.5"
             >
-             About me <ArrowRight size={16} />
+              About me <ArrowRight size={16} />
             </a>
             <a
-              href="/Toms_Johnson_CV.pdf"
-              download="Toms_Johnson_CV.pdf"
+              href="/cv?download=true"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5"
             >
               Download CV <Download size={16} />
