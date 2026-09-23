@@ -15,7 +15,34 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  const scrollTo = (targetId: string) => {
+    const el = document.getElementById(targetId);
+    if (el) {
+      const navOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navOffset,
+        behavior: "smooth",
+      });
+      setActiveSection(targetId);
+      // Remove hash from URL to keep address bar clean
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    scrollTo(href.replace("#", ""));
+  };
+
   useEffect(() => {
+    // Clean hash on initial load if present
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "contact"];
       const scrollY = window.scrollY;
@@ -41,7 +68,11 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-[#05070c]/80 backdrop-blur-md border-b border-[#1c2230]/60">
       <nav className="max-w-content mx-auto flex items-center justify-between px-6 py-4 sm:py-5">
-        <a href="#home" className="flex items-center text-xl font-bold tracking-tight text-white group">
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "#home")}
+          className="flex items-center text-xl font-bold tracking-tight text-white group"
+        >
           <div className="relative flex items-center">
             <span className="flex justify-center w-[46px] h-[46px] rounded-full ring-2 ring-accent/60 overflow-hidden bg-[#0c1220] transition-transform group-hover:scale-105">
               <Image
@@ -71,7 +102,7 @@ export default function Navbar() {
               <li key={link.href} className="relative">
                 <a
                   href={link.href}
-                  onClick={() => setActiveSection(link.href.replace("#", ""))}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className={`py-1 transition-colors hover:text-white ${
                     isActive ? "text-white font-medium" : "text-white/60"
                   }`}
@@ -88,6 +119,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
+          onClick={(e) => handleNavClick(e, "#contact")}
           className="hidden md:inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm font-medium text-white hover:bg-accentSoft transition-all shadow-md shadow-accent/20"
         >
           Let&rsquo;s Talk <ArrowRight size={15} />
@@ -111,8 +143,8 @@ export default function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => {
-                      setActiveSection(link.href.replace("#", ""));
+                    onClick={(e) => {
+                      handleNavClick(e, link.href);
                       setOpen(false);
                     }}
                     className={`block py-1 ${isActive ? "text-accent font-medium" : "text-white/70"}`}
@@ -125,7 +157,10 @@ export default function Navbar() {
           </ul>
           <a
             href="#contact"
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+              handleNavClick(e, "#contact");
+              setOpen(false);
+            }}
             className="mt-5 inline-flex items-center justify-center gap-2 w-full rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white"
           >
             Let&rsquo;s Talk <ArrowRight size={15} />

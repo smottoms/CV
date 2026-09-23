@@ -1,6 +1,24 @@
-﻿import { ArrowRight, Download } from "lucide-react";
+﻿"use client";
+
+import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
+  const scrollToAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("about");
+    if (el) {
+      const navOffset = 80;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - navOffset,
+        behavior: "smooth",
+      });
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    }
+  };
+
   return (
     <section id="home" className="relative overflow-hidden bg-[#05070c] pt-36 sm:pt-40 pb-16 px-6">
       <div className="max-w-content mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -25,6 +43,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#about"
+              onClick={scrollToAbout}
               className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accentSoft px-7 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:-translate-y-0.5"
             >
               About me <ArrowRight size={16} />
