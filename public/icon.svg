@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Squircle -->
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <!-- Sleek Accent Border -->
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7.25" fill="none" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.45"/>
+  <!-- TJ Monogram -->
+  <text x="16" y="21.5" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="14.5" text-anchor="middle" letter-spacing="-1">
+    <tspan fill="#ffffff">T</tspan><tspan fill="url(#accent)">J</tspan>
+  </text>
+</svg>
+
