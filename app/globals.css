@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #05070c;
+  color: #f3f2ee;
+}
+
+::selection {
+  background: #2f6bff;
+  color: white;
+}
+
+.glow-orb {
+  background: radial-gradient(circle at 30% 30%, #3d6fff 0%, #1230a8 45%, #05070c 75%);
+}
