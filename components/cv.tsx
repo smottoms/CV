@@ -1,29 +1,22 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Phone, Mail, Github, Link as LinkIcon, Download, Printer, ArrowLeft, Loader2 } from "lucide-react";
+import { Phone, Mail, Github, Link as LinkIcon, Download, ArrowLeft, Loader2 } from "lucide-react";
 import Link from "next/link";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
-const skills = [
-  "Full Stack Development",
-  "React",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "Python",
-  "FastAPI",
-  "SQL",
-  "C",
-  "C++",
-  "Graphic Design",
-  "Motion Graphics",
-  "UI/UX Design",
-  "IT Support",
+const coreStrengths = [
+  "Technical Troubleshooting",
   "Problem Solving",
-  "Git & GitHub",
-  "Communication",
+  "System Configuration",
+  "End-User Support",
+  "Full Stack Development",
+  "Mobile Development",
+  "API Development",
+  "Database Integration",
+  "Debugging",
+  "Team Collaboration",
 ];
 
 const experience = [
@@ -32,10 +25,15 @@ const experience = [
     company: "First Solution Pvt Ltd",
     role: "Full Stack Developer",
     bullets: [
-      "Develop and maintain full-stack web applications using FastAPI, React, Next.js, TypeScript, and SQL-based databases.",
-      "Build REST APIs, API integrations, authentication flows, database models, and responsive frontend interfaces.",
-      "Apply Git, testing, debugging, and modern development workflows to deliver reliable and maintainable features.",
-      "Work with AI-assisted development tools and local LLM workflows to support development, experimentation, and productivity.",
+      "Developed and maintained full-stack web applications using React, Next.js, TypeScript, Node.js, Python, and FastAPI.",
+      "Developed responsive and component-based user interfaces using React and modern frontend development practices.",
+      "Worked with React Native for mobile application development and API integration.",
+      "Designed and integrated REST APIs for frontend and mobile applications.",
+      "Implemented application functionality involving authentication, API communication, data handling, and database integration.",
+      "Worked with MySQL, PostgreSQL, SQL, and MongoDB for application data management and database integration.",
+      "Used Git and GitHub for source-code management, version control, and development workflows.",
+      "Performed application debugging, testing, troubleshooting, and maintenance.",
+      "Worked across frontend and backend components to identify and resolve application issues.",
     ],
   },
   {
@@ -43,8 +41,14 @@ const experience = [
     company: "Zilicon Network Solution Pvt Ltd",
     role: "IT Support & Graphic / Motion Graphic Designer",
     bullets: [
-      "Provided IT support while creating graphic and motion-design assets for digital and business requirements.",
-      "Troubleshot technical issues, supported users, and prepared visual content for projects and campaigns.",
+      "Provided day-to-day IT support for desktop computers, laptops, software, peripherals, and user technical requirements.",
+      "Configured and prepared desktop and laptop systems for users and workplace operations.",
+      "Installed and configured operating systems, applications, and required software.",
+      "Troubleshot hardware, software, system, and connectivity-related issues and implemented practical solutions.",
+      "Assisted with desktop setup, system configuration, device setup, maintenance, and technical troubleshooting.",
+      "Supported users with software installation, configuration, peripheral setup, and general technical issues.",
+      "Diagnosed technical problems and assisted users in resolving issues affecting their day-to-day work.",
+      "Created graphic designs and motion graphics for business, digital, promotional, and marketing requirements.",
     ],
   },
   {
@@ -52,34 +56,66 @@ const experience = [
     company: "Zilicon Network Solution",
     role: "Graphic Designer / Motion Graphic Designer",
     bullets: [
-      "Designed digital graphics, promotional creatives, and motion-graphic content for business and marketing projects.",
+      "Created digital graphics, promotional creatives, and visual content for business and marketing requirements.",
+      "Designed motion graphics and digital visual assets for promotional and communication purposes.",
+      "Developed creative materials based on project requirements and brand guidelines.",
+      "Collaborated on digital content and visual assets for business requirements.",
     ],
   },
   {
     range: "2021 – 2023",
-    company: "Freelancer",
+    company: "Freelance",
     role: "Graphic Designer",
     bullets: [
-      "Created graphic design assets for clients, including promotional visuals, social-media creatives, and branded content.",
+      "Created graphic design assets for clients and event-related projects.",
+      "Designed promotional graphics, social-media creatives, and branded visual content.",
+      "Worked with clients to understand requirements and deliver designs according to project needs.",
     ],
   },
 ];
 
 const technicalSkills = [
-  { label: "Backend", value: "Python, FastAPI, REST API Development, API Integration" },
-  { label: "Frontend", value: "React, Next.js, TypeScript, JavaScript, Component-Based UI" },
-  { label: "Database", value: "SQL, Database Design" },
-  { label: "Testing", value: "PyTest, Unit Testing, Test Automation" },
-  { label: "AI / GenAI", value: "LLM Integration, Local LLMs, Ollama, Qwen, Mistral, Prompt Engineering, AI-Assisted Development" },
-  { label: "Tools", value: "Git, GitHub, Responsive UI Development" },
-  { label: "Programming", value: "C, C++, Python, JavaScript" },
+  {
+    label: "Development",
+    value: "React • React Native • Next.js • Node.js • TypeScript • JavaScript • Python • FastAPI",
+  },
+  {
+    label: "Backend & APIs",
+    value: "REST APIs • API Integration • Authentication • Backend Development",
+  },
+  {
+    label: "Databases",
+    value: "SQL • MySQL • PostgreSQL • MongoDB • Database Design",
+  },
+  {
+    label: "Programming",
+    value: "Python • JavaScript • TypeScript • C • C++",
+  },
+  {
+    label: "IT Support",
+    value: "Desktop Support • Laptop Support • System Configuration • Hardware Troubleshooting • Software Troubleshooting • Software Installation • Operating System Setup • Peripheral Configuration • User Support • System Maintenance",
+  },
+  {
+    label: "Tools",
+    value: "Git • GitHub • VS Code",
+  },
+  {
+    label: "Testing & Debugging",
+    value: "PyTest • Unit Testing • Debugging • Troubleshooting",
+  },
+  {
+    label: "Design",
+    value: "Graphic Design • Motion Graphics • UI/UX Design",
+  },
 ];
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="mt-8 first:mt-0">
-      <h2 className="text-sm font-bold tracking-widest text-slate-900">{title}</h2>
-      <div className="mt-1 mb-4 h-0.5 w-8 bg-blue-600" />
+    <div className="mt-3.5 first:mt-0">
+      <div className="flex items-center gap-2 mb-1.5">
+        <h2 className="text-[11px] font-bold tracking-widest text-slate-900 uppercase">{title}</h2>
+        <div className="h-0.5 w-6 bg-blue-600 rounded" />
+      </div>
       {children}
     </div>
   );
@@ -90,21 +126,18 @@ export default function Resume() {
   const cvRef = useRef<HTMLDivElement>(null);
 
   const generatePDF = async () => {
-    console.log("[CV] generatePDF invoked! cvRef:", !!cvRef.current, "downloading:", downloading);
     if (!cvRef.current || downloading) return;
     try {
       setDownloading(true);
-      console.log('[CV PDF] Starting canvas rendering...');
       const element = cvRef.current;
       const canvas = await html2canvas(element, {
         scale: 2,
         useCORS: true,
-        allowTaint: true,
         logging: false,
+        backgroundColor: "#ffffff",
       });
-      console.log('[CV PDF] Canvas rendered successfully!', canvas.width, 'x', canvas.height);
 
-      const imgData = canvas.toDataURL("image/jpeg", 0.95);
+      const imgData = canvas.toDataURL("image/jpeg", 0.98);
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "mm",
@@ -117,24 +150,19 @@ export default function Resume() {
       const canvasHeight = canvas.height;
       const imgHeight = (canvasHeight * pageWidth) / canvasWidth;
 
-      let heightLeft = imgHeight;
-      let position = 0;
-
-      pdf.addImage(imgData, "JPEG", 0, position, pageWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "JPEG", 0, position, pageWidth, imgHeight);
-        heightLeft -= pageHeight;
+      // Always guarantee exactly 1 single A4 page
+      if (imgHeight <= pageHeight) {
+        pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, imgHeight);
+      } else {
+        const scaleFactor = pageHeight / imgHeight;
+        const scaledWidth = pageWidth * scaleFactor;
+        const xOffset = (pageWidth - scaledWidth) / 2;
+        pdf.addImage(imgData, "JPEG", xOffset, 0, scaledWidth, pageHeight);
       }
 
       pdf.save("Toms_Johnson_CV.pdf");
-      console.log('[CV PDF] PDF save completed!');
     } catch (err) {
       console.error("PDF generation error:", err);
-      // Fallback to native print if canvas fails
       window.print();
     } finally {
       setDownloading(false);
@@ -144,45 +172,49 @@ export default function Resume() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       (window as any).__triggerCvDownload = generatePDF;
-      console.log("[CV] Resume mounted, __triggerCvDownload ready!");
       const params = new URLSearchParams(window.location.search);
       if (params.get("download") === "true") {
         setTimeout(() => {
           generatePDF();
-        }, 800);
+        }, 600);
       }
     }
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-100 py-8 px-4 flex flex-col items-center">
+    <div className="min-h-screen bg-slate-100 py-6 px-4 flex flex-col items-center">
       {/* Print-specific style overrides */}
       <style jsx global>{`
         @media print {
+          @page {
+            size: A4 portrait;
+            margin: 0;
+          }
           body {
             background: white !important;
             padding: 0 !important;
             margin: 0 !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
           .no-print {
             display: none !important;
           }
           #cv-content {
             box-shadow: none !important;
+            border: none !important;
             border-radius: 0 !important;
             width: 100% !important;
             max-width: 100% !important;
             margin: 0 !important;
-          }
-          @page {
-            size: A4;
-            margin: 0;
+            page-break-after: avoid !important;
+            page-break-inside: avoid !important;
           }
         }
       `}</style>
 
-      {/* Top Action Bar (hidden when printing or rendering PDF) */}
-      <div className="no-print w-full max-w-5xl mb-5 flex flex-wrap items-center justify-between gap-4">
+      {/* Top Action Bar */}
+      <div className="no-print w-full max-w-[850px] mb-4 flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
@@ -191,8 +223,6 @@ export default function Resume() {
         </Link>
 
         <div className="flex items-center gap-3">
-          
-
           <button
             onClick={generatePDF}
             disabled={downloading}
@@ -201,12 +231,12 @@ export default function Resume() {
             {downloading ? (
               <>
                 <Loader2 size={15} className="animate-spin" />
-                Generating PDF...
+                Generating 1-Page PDF...
               </>
             ) : (
               <>
                 <Download size={15} />
-                Download PDF
+                Download PDF (1 Page)
               </>
             )}
           </button>
@@ -217,12 +247,12 @@ export default function Resume() {
       <div
         id="cv-content"
         ref={cvRef}
-        className="w-full max-w-5xl bg-white shadow-xl flex flex-col md:flex-row overflow-hidden rounded-xl border border-slate-200"
+        className="w-full max-w-[850px] bg-white shadow-xl flex flex-col md:flex-row overflow-hidden rounded-xl border border-slate-200"
       >
         {/* Left Sidebar */}
-        <aside className="bg-slate-900 text-slate-200 w-full md:w-[280px] shrink-0 p-8 flex flex-col justify-between">
+        <aside className="bg-slate-900 text-slate-200 w-full md:w-[245px] shrink-0 p-5 flex flex-col justify-between">
           <div>
-            <div className="mx-auto h-36 w-36 rounded-full ring-4 ring-blue-500 overflow-hidden bg-slate-700 flex items-center justify-center text-4xl font-bold text-slate-300">
+            <div className="mx-auto h-24 w-24 rounded-full ring-2 ring-blue-500 overflow-hidden bg-slate-700 flex items-center justify-center shadow-md">
               <img
                 src="/profile/profile.png"
                 alt="Toms Johnson"
@@ -230,34 +260,34 @@ export default function Resume() {
               />
             </div>
 
-            <div className="mt-9">
-              <h2 className="text-xs font-bold tracking-[0.2em] text-white">CONTACT</h2>
-              <div className="mt-1.5 mb-4 h-0.5 w-8 bg-blue-500" />
-              <ul className="space-y-3 text-xs leading-relaxed">
-                <li className="flex items-center gap-3">
-                  <Phone size={15} className="text-blue-400 shrink-0" />
-                  <span>7400251288</span>
+            <div className="mt-5">
+              <h2 className="text-[11px] font-bold tracking-[0.2em] text-white">CONTACT</h2>
+              <div className="mt-1 mb-2 h-0.5 w-6 bg-blue-500" />
+              <ul className="space-y-1.5 text-[11px] leading-relaxed">
+                <li className="flex items-center gap-2.5">
+                  <Phone size={13} className="text-blue-400 shrink-0" />
+                  <span>7400251388</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail size={15} className="text-blue-400 shrink-0" />
+                <li className="flex items-center gap-2.5">
+                  <Mail size={13} className="text-blue-400 shrink-0" />
                   <span className="break-all">tomsjohnson56@gmail.com</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Github size={15} className="text-blue-400 shrink-0" />
+                <li className="flex items-center gap-2.5">
+                  <Github size={13} className="text-blue-400 shrink-0" />
                   <span>github.com/smottoms</span>
                 </li>
-                <li className="flex items-center gap-3">
-                  <LinkIcon size={15} className="text-blue-400 shrink-0" />
+                <li className="flex items-center gap-2.5">
+                  <LinkIcon size={13} className="text-blue-400 shrink-0" />
                   <span>tomsjohnson.vercel.app</span>
                 </li>
               </ul>
             </div>
 
-            <div className="mt-9">
-              <h2 className="text-xs font-bold tracking-[0.2em] text-white">SKILLS</h2>
-              <div className="mt-1.5 mb-4 h-0.5 w-8 bg-blue-500" />
-              <ul className="space-y-2 text-xs">
-                {skills.map((s) => (
+            <div className="mt-5">
+              <h2 className="text-[11px] font-bold tracking-[0.2em] text-white">CORE STRENGTHS</h2>
+              <div className="mt-1 mb-2 h-0.5 w-6 bg-blue-500" />
+              <ul className="space-y-1 text-[10.5px] leading-snug text-slate-300">
+                {coreStrengths.map((s) => (
                   <li key={s} className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
                     <span>{s}</span>
@@ -267,23 +297,23 @@ export default function Resume() {
             </div>
           </div>
 
-          <div className="mt-10 pt-6 border-t border-slate-800 text-center italic text-xs text-slate-400">
+          <div className="mt-6 pt-3 border-t border-slate-800 text-center italic text-[11px] text-slate-400">
             &ldquo;Build &bull; Learn &bull; Grow&rdquo;
           </div>
         </aside>
 
         {/* Right Main Content */}
-        <main className="flex-1 p-8 md:p-10">
-          <div className="flex items-start justify-between gap-6 flex-wrap">
+        <main className="flex-1 p-5 md:p-6">
+          <div className="flex items-start justify-between gap-4 mb-2.5">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 TOMS <span className="text-blue-600">JOHNSON</span>
               </h1>
-              <p className="mt-1 text-xs font-semibold tracking-[0.25em] text-slate-500">
-                FULL STACK DEVELOPER
+              <p className="mt-0.5 text-[10px] sm:text-[10.5px] font-bold tracking-wider text-slate-600 uppercase">
+                FULL STACK DEVELOPER | IT SUPPORT | DESKTOP SUPPORT
               </p>
             </div>
-            <div className="text-right text-[11px] font-bold tracking-widest text-slate-500 leading-relaxed border-l-2 border-blue-600 pl-3">
+            <div className="text-right text-[9.5px] font-bold tracking-widest text-slate-400 leading-tight border-l-2 border-blue-600 pl-2.5 hidden sm:block shrink-0">
               IDEAS
               <br />
               INTO
@@ -292,26 +322,29 @@ export default function Resume() {
             </div>
           </div>
 
-          <Section title="SUMMARY">
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-700">
-              Full Stack Developer with 5 years of professional experience across software
-              development, IT support, graphic design, and motion graphics. Experienced in
-              building web applications using React, Next.js, TypeScript, Python, FastAPI, and
-              SQL. Practical experience with REST APIs, API integrations, authentication,
-              databases, responsive UI development, Git, testing, and AI-assisted development
-              workflows.
+          <Section title="PROFESSIONAL SUMMARY">
+            <p className="text-[10.5px] leading-relaxed text-slate-700">
+              Full Stack Developer and IT Support professional with 5 years of experience spanning web
+              and mobile application development, desktop support, system configuration,
+              troubleshooting, and digital design. Experienced in building applications using React,
+              React Native, Next.js, TypeScript, Node.js, Python, and FastAPI, with database
+              experience in MySQL, PostgreSQL, SQL, and MongoDB. Hands-on IT support experience
+              including desktop and laptop configuration, software installation, system setup,
+              hardware and software troubleshooting, peripheral setup, and end-user technical support.
             </p>
           </Section>
 
-          <Section title="EXPERIENCE">
-            <div className="relative border-l-2 border-slate-200 pl-6 space-y-7">
+          <Section title="PROFESSIONAL EXPERIENCE">
+            <div className="relative border-l-2 border-slate-200 pl-3.5 space-y-2.5">
               {experience.map((job) => (
                 <div key={job.company + job.range} className="relative">
-                  <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-blue-600 ring-4 ring-white" />
-                  <p className="text-xs font-bold text-slate-500">{job.range}</p>
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900">{job.company}</h3>
-                  <p className="text-xs sm:text-sm font-semibold text-blue-600">{job.role}</p>
-                  <ul className="mt-2 space-y-1 text-xs sm:text-sm text-slate-700 list-disc list-outside ml-4">
+                  <span className="absolute -left-[19px] top-1.5 h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white" />
+                  <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                    <h3 className="text-[11.5px] font-bold text-slate-900">{job.company}</h3>
+                    <span className="text-[10px] font-semibold text-slate-400">{job.range}</span>
+                  </div>
+                  <p className="text-[10.5px] font-semibold text-blue-600">{job.role}</p>
+                  <ul className="mt-1 space-y-0.5 text-[10px] leading-tight text-slate-700 list-disc list-outside ml-3">
                     {job.bullets.map((b, i) => (
                       <li key={i}>{b}</li>
                     ))}
@@ -322,9 +355,9 @@ export default function Resume() {
           </Section>
 
           <Section title="TECHNICAL SKILLS">
-            <div className="divide-y divide-slate-200 border-t border-slate-200">
+            <div className="divide-y divide-slate-100 border-t border-slate-200">
               {technicalSkills.map((row) => (
-                <div key={row.label} className="grid grid-cols-[110px_1fr] gap-4 py-2 text-xs sm:text-sm">
+                <div key={row.label} className="grid grid-cols-[105px_1fr] gap-2 py-0.5 text-[10px] leading-snug">
                   <span className="font-bold text-slate-900">{row.label}</span>
                   <span className="text-slate-700">{row.value}</span>
                 </div>
@@ -332,8 +365,8 @@ export default function Resume() {
             </div>
           </Section>
 
-          <div className="mt-8 flex items-center gap-3 justify-end text-[11px] font-bold tracking-widest text-slate-500">
-            <span className="h-0.5 w-6 bg-blue-600" />
+          <div className="mt-4 flex items-center gap-2 justify-end text-[10px] font-bold tracking-widest text-slate-400">
+            <span className="h-0.5 w-5 bg-blue-600" />
             BUILD &bull; LEARN &bull; GROW
           </div>
         </main>

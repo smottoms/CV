@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Toms Johnson — Full Stack Developer",
+  title: "Toms Johnson — Full Stack Developer | IT Support | Desktop Support",
   description:
-    "I design, develop and create digital experiences that are simple, useful and look good.",
+    "Full Stack Developer and IT Support professional with 5 years of experience spanning web & mobile application development, desktop support, system configuration, troubleshooting, and digital design.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },

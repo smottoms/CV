@@ -1,26 +1,26 @@
-﻿const roles = [
+const roles = [
   {
-    period: "2025 - 2026",
+    period: "2025 – 2026",
     title: "First Solution Pvt Ltd",
     role: "Full Stack Developer",
     active: true,
   },
   {
-    period: "2024 - 2025",
+    period: "2024 – 2025",
     title: "Zilicon Network Solution Pvt Ltd",
-    role: "IT Support & Graphic and Motion Graphic",
+    role: "IT Support & Graphic / Motion Graphic Designer",
     active: false,
   },
   {
-    period: "2023 - 2024",
+    period: "2023 – 2024",
     title: "Zilicon Network Solution",
     role: "Graphic Designer / Motion Graphic Designer",
     active: false,
   },
   {
-    period: "2021 - 2023",
-    title: "Freelancer",
-    role: "Graphic Designer (Event Companies)",
+    period: "2021 – 2023",
+    title: "Freelance",
+    role: "Graphic Designer",
     active: false,
   },
 ];

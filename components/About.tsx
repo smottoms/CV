@@ -1,7 +1,8 @@
-﻿const stats = [
+const stats = [
   { value: "5+", label: "Years Experience" },
-  { value: "Design + Code", label: "Focus" },
-  { value: "Always", label: "Learning" },
+  { value: "Full Stack", label: "Web & Mobile" },
+  { value: "IT Support", label: "Desktop & Systems" },
+  { value: "Design", label: "Motion & UI/UX" },
 ];
 
 export default function About() {
@@ -22,11 +23,12 @@ export default function About() {
           </h2>
 
           <p className="mt-6 text-[#4b5563] text-sm sm:text-base leading-relaxed max-w-lg font-normal">
-            I&rsquo;m a Full Stack Developer with a background in graphic and
-            motion design. I enjoy turning ideas into real products — from
-            crisp visuals to functional web applications. I like learning new
-            technologies, solving problems, and building things that are
-            useful and look good.
+            I&rsquo;m a Full Stack Developer and IT Support professional with 5 years of
+            experience spanning web &amp; mobile application development, desktop support,
+            system configuration, troubleshooting, and digital design. Experienced in building
+            applications using React, React Native, Next.js, TypeScript, Node.js, Python, and FastAPI,
+            with database expertise across SQL and MongoDB. I combine software engineering with
+            practical hardware/software troubleshooting to deliver reliable digital products.
           </p>
 
           {/* 4 Stat Boxes Matching Screenshot */}

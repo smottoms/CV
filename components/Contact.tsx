@@ -1,4 +1,4 @@
-﻿import { Mail, MapPin, Github, Instagram, Send } from "lucide-react";
+import { Mail, MapPin, Github, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -31,15 +31,29 @@ export default function Contact() {
             chat.
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-4 max-w-lg">
+          <div className="mt-9 flex flex-wrap gap-3.5 max-w-xl">
             <a
-              href="mailto:tomsjohnson@example.com"
-              className="flex items-center gap-3 rounded-full border border-[#1e2638] bg-[#0c1017] px-6 py-3 text-sm text-white/80 hover:border-accent/60 transition-all hover:-translate-y-0.5"
+              href="mailto:tomsjohnson56@gmail.com"
+              className="flex items-center gap-2.5 rounded-full border border-[#1e2638] bg-[#0c1017] px-5 py-2.5 text-xs sm:text-sm text-white/80 hover:border-accent/60 transition-all hover:-translate-y-0.5"
             >
-              <Mail size={16} className="text-white/60" /> tomsjohnson56@gmail.com
+              <Mail size={15} className="text-white/60" /> tomsjohnson56@gmail.com
             </a>
-            <div className="flex items-center gap-3 rounded-full border border-[#1e2638] bg-[#0c1017] px-6 py-3 text-sm text-white/80">
-              <MapPin size={16} className="text-white/60" /> India
+            <a
+              href="tel:7400251388"
+              className="flex items-center gap-2.5 rounded-full border border-[#1e2638] bg-[#0c1017] px-5 py-2.5 text-xs sm:text-sm text-white/80 hover:border-accent/60 transition-all hover:-translate-y-0.5"
+            >
+              <Phone size={15} className="text-white/60" /> +91 7400251388
+            </a>
+            <a
+              href="https://github.com/smottoms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 rounded-full border border-[#1e2638] bg-[#0c1017] px-5 py-2.5 text-xs sm:text-sm text-white/80 hover:border-accent/60 transition-all hover:-translate-y-0.5"
+            >
+              <Github size={15} className="text-white/60" /> github.com/smottoms
+            </a>
+            <div className="flex items-center gap-2.5 rounded-full border border-[#1e2638] bg-[#0c1017] px-5 py-2.5 text-xs sm:text-sm text-white/80">
+              <MapPin size={15} className="text-white/60" /> India
             </div>
           </div>
         </div>

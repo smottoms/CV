@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { ArrowRight, Download } from "lucide-react";
 
@@ -25,7 +25,7 @@ export default function Hero() {
         {/* Left Column: Heading and CTAs */}
         <div className="lg:col-span-6 z-10">
           <p className="flex items-center gap-3 text-xs font-semibold tracking-[0.2em] text-accentSoft mb-6">
-            FULL STACK DEVELOPER
+            FULL STACK DEVELOPER • IT SUPPORT • DESKTOP SUPPORT
             <span className="h-[1px] w-10 bg-accentSoft/60" />
           </p>
 
@@ -36,8 +36,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-md text-white/60 text-base sm:text-lg leading-relaxed font-normal">
-            I design, develop and create digital experiences that are simple,
-            useful and look good.
+            Full Stack Developer &amp; IT Support professional with 5 years of experience
+            building web and mobile applications while delivering reliable desktop and systems support.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
